@@ -43,6 +43,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+A closure is the combination of a function with variables representing its state. It gives the function access to an outer function's variables from within the inner function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +66,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+The closure is used with the personalDice function. Because that is the function that has the anonymouse inner function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The code being executed and the value of the name variable passed in is always the same. The newRoll const could change. 
+
 c. What is the lexical scope of `newRoll`? 
+The lexical scope of `newRoll` contains nothing.var
 
 
 ### Task 3 - Stretch Goals
@@ -83,6 +90,23 @@ addSix(21); // returns 27
 ```
 
 2. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
+OOP Pros:
+- Very readable and intuitive
+- Utilizes an imperative style
+OOP Cons:
+- Depends upon a shareable state
+
+FP Pros:
+- Utilizes 'pure' functions that do just what they should, and nothing more
+- more declarative style that focuses more on what to do
+- more geared towards performance and optimization
+
+FP Cons:
+- Can lack readability
+- Newer paradigm so lesser documentation
+
+[Source](https://medium.com/@darrickmckirnan/object-oriented-programming-oop-functional-programming-what-are-they-the-pros-and-cons-11f98a971e38)
+
 
 ## Resources
 
