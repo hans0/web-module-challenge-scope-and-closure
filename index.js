@@ -28,9 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  counter1 uses an inner function to increment its inner count variable.
+  counter2 is its own function, used to increment a global variable.
+
   2. Which of the two uses a closure? How can you tell?
-  
+  counter1 uses a closure. Because its inner counter function qualifies since it used curly braces
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
 */
@@ -64,6 +67,7 @@ NOTE: This will be a callback function for the tasks below
 
 function inning(/*Code Here*/){
     /*Code Here*/
+    return Math.round(Math.random() * 2);
 }
 
 
@@ -81,8 +85,14 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(func, numberInnings){
   /*Code Here*/
+  let score = {'Home': 0, 'Away': 0};
+  for (let i = 0; i < numberInnings; i++) {
+    score['Home'] += func();
+    score['Away'] += func();
+  }
+  return score;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,8 +100,12 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
+function getInningScore(func) {
   /*Your Code Here */
+  let score = {'Home': 0, 'Away': 0};
+  score['Home'] += func();
+  score['Away'] += func();
+  return score;
 }
 
 
@@ -136,11 +150,31 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScore, inning, numberInnings) {
   /* CODE HERE */
+  const result = [];
+  const homeScores = [];
+  const awayScores = [];
+  let h = 0;
+  let a = 0;
+  for (let i = 0; i < numberInnings; i++) {
+    homeScores.push(inning());
+    awayScores.push(inning()); 
+    result.push(`Inning ${i+1}: Away ${awayScores[awayScores.length - 1]} - Home ${homeScores[homeScores.length - 1]}`);
+  }
+  h = homeScores.reduce((a, b) => a + b, 0);
+  a = awayScores.reduce((a, b) => a + b, 0);
+  // console.log('Home:' + homeScores + '\n' + h);
+  // console.log('Away:' + awayScores + '\n' + a);
+  if (h === a){
+    result.push(`This game will require extra innings: Away ${a} - Home ${h}`)
+  } else {
+    result.push(`Final Score: Away ${a} - Home ${h}`)
+  }
+  return result;
 }
 
-
+// console.log(scoreboard(getInningScore, inning, 9));
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
