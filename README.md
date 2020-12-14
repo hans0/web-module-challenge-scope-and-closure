@@ -66,13 +66,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
 The closure is used with the personalDice function. Because that is the function that has the anonymouse inner function.
 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
 The code being executed and the value of the name variable passed in is always the same. The newRoll const could change. 
 
 c. What is the lexical scope of `newRoll`? 
-The lexical scope of `newRoll` contains nothing.var
+
+The lexical scope of `newRoll` contains nothing.
 
 
 ### Task 3 - Stretch Goals
@@ -90,9 +93,11 @@ addSix(21); // returns 27
 ```
 
 2. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
+
 OOP Pros:
 - Very readable and intuitive
 - Utilizes an imperative style
+
 OOP Cons:
 - Depends upon a shareable state
 
